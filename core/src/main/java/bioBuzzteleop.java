@@ -52,18 +52,7 @@ public class bioBuzzteleop extends OpMode {
      */
     @Override
     public void loop() {
-        /*
-         * Here we call a function called arcadeDrive. The arcadeDrive function takes the input from
-         * the joysticks, and applies power to the left and right drive motor to move the robot
-         * as requested by the driver. "arcade" refers to the control style we're using here.
-         * Much like a classic arcade game, when you move the left joystick forward both motors
-         * work to drive the robot forward, and when you move the right joystick left and right
-         * both motors work to rotate the robot. Combinations of these inputs can be used to create
-         * more complex maneuvers.
-         */
-        arcadeDrive(-gamepad1.left_stick_y, gamepad1.right_stick_x);
-
-
+        
     }
 
     /*
