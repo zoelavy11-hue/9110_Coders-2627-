@@ -34,7 +34,6 @@ public class bioBuzzteleop extends OpMode {
         rightDrive.setZeroPowerBehavior(BRAKE);
 
 
-        telemetry.addData("Status", "Initialized");
     }
 
     /*
