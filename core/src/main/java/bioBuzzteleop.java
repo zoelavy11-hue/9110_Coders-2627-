@@ -111,15 +111,9 @@ public class bioBuzzteleop extends OpMode {
     public void stop() {
     }
 
-    void arcadeDrive(double forward, double rotate) {
-        leftPower = forward + rotate;
-        rightPower = forward - rotate;
-
         /*
          * Send calculated power to motors
          */
-        leftDrive.setPower(leftPower);
-        rightDrive.setPower(rightPower);
     }
 
         /*
