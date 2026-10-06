@@ -33,55 +33,21 @@ public class bioBuzzteleop extends OpMode {
 
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit START
-     */
     @Override
     public void init_loop() {
     }
 
-    /*
-     * Code to run ONCE when the driver hits START
-     */
     @Override
     public void start() {
-    }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits START but before they hit STOP
-     */
+    }
     @Override
     public void loop() {
-        
-    }
 
-    /*
-     * Code to run ONCE after the driver hits STOP
-     */
+    }
     @Override
-    public void stop() {
+    public void stop () {
     }
 
-        /*
-         * Send calculated power to motors
-         */
+
     }
-
-        /*
-         * Calling gamepad1.right_bumper returns a boolean which will be true if the bumper is
-         * held down, and false if it is not. Notably, this will continue to be true for every
-         * cycle of our code that the driver holds down that bumper.
-         * The first step of our launch() function is checking to see if the user is currently
-         * holding down the right gamepad. If they are, then we want to start spinning up the launcher.
-         * Otherwise, we start spinning the launcher down.
-         */
-
-
-        /*
-         * Here we ask if the driver is currently pressing the right bumper, AND the launcher is
-         * spinning fast enough to make a successful shot. If it is, then we will turn on the
-         * windmill servo to start feeding the elements into the launcher motor. We also
-         * add some power to the intake power. This can sometimes help dislodge stuck elements from
-         * inside the hopper.
-         */
-
