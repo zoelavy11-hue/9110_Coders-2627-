@@ -1,5 +1,14 @@
+/*
+Copyright 2026 FIRST Tech Challenge Team FTC
 
-import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
 NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -14,20 +23,34 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * This file contains a minimal example of an iterative (Non-Linear) "OpMode". An OpMode is a
+ * 'program' that runs in either the autonomous or the TeleOp period of an FTC match. The names
+ * of OpModes appear on the menu of the FTC Driver Station. When an selection is made from the
+ * menu, the corresponding OpMode class is instantiated on the Robot Controller and executed.
+ *
+ * Remove the @Disabled annotation on the next line or two (if present) to add this OpMode to the
+ * Driver Station OpMode list, or add a @Disabled annotation to prevent this OpMode from being
+ * added to the Driver Station.
+ */
+@TeleOp
+
+public class Movement extends OpMode {
+    /* Declare OpMode members. */
+
+    private DcMotor leftDrive;
+    private DcMotor rightDrive;
 
 
-@TeleOp(name = "BioBuzz StarterBot Teleop", group = "StarterBot")
-//@Disabled
-public class bioBuzzteleop extends OpMode {
-
-    // Declare OpMode members.
-    private DcMotor leftDrive = null;
-    private DcMotor rightDrive = null;
-    /*
-     * Code to run ONCE when the driver hits INIT
-     */
     @Override
     public void init() {
+        telemetry.addData("Status", "Initialized");
 
         leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
@@ -37,27 +60,40 @@ public class bioBuzzteleop extends OpMode {
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
-        leftDrive.setZeroPowerBehavior(BRAKE);
-        rightDrive.setZeroPowerBehavior(BRAKE);
-
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     }
 
+    /*
+     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
+     */
     @Override
     public void init_loop() {
     }
 
+    /*
+     * Code to run ONCE when the driver hits PLAY
+     */
     @Override
     public void start() {
 
     }
+
+    /*
+     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
+     */
     @Override
     public void loop() {
-
+        leftDrive.setPower(-gamepad1.left_stick_y);
+        rightDrive.setPower(-gamepad1.right_stick_y);
     }
+
+    /*
+     * Code to run ONCE after the driver hits STOP
+     */
     @Override
-    public void stop () {
-    }
-
+    public void stop() {
 
     }
+}
